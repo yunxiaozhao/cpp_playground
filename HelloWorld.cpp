@@ -18,7 +18,7 @@ void concat(vector<int> &head, vector<int> &tail)
             auto tmpHead{head};
             tmpHead.emplace_back(tail[i]);
             auto tmpTail{tail};
-            tmpTail.erase(tail.begin() + i);
+            tmpTail.erase(tmpTail.begin() + i);
             concat(tmpHead, tmpTail);
         }
     }
@@ -34,9 +34,7 @@ vector<vector<int>> permute(vector<int> &nums)
 int main()
 {
     vector<int> a{1, 2, 3, 4};
-    cout << res.size();
     permute(a);
-    cout << res.size();
     for (auto i : res)
     {
         cout << "[";
