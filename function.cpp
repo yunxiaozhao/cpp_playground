@@ -19,6 +19,11 @@ vector<int> foo();
 int *(*func())[10];
 void print_arr(int **beg, int **end);
 constexpr int return_num(int i);
+void func1(int);
+void func2(int);
+auto funcfunc(void (*)(int)) -> void (*)(int);
+// void (*funcfunc(void (*)(int)))(int);
+// decltype(func1) *funcfunc(void (int));
 
 int main(int argc, char *argv[])
 {
@@ -30,7 +35,8 @@ int main(int argc, char *argv[])
     print_arr(begin(*k), end(*k));
     int i = 1;
     return_num(i);
-
+    funcfunc (&func1)(100);
+    
     return EXIT_SUCCESS;
 }
 
@@ -53,4 +59,25 @@ void print_arr(int **beg, int **end)
 constexpr int return_num(int i)
 {
     return i;
+}
+
+void func1(int a)
+{
+    cout << a << endl;
+}
+
+inline void func2(int a)
+{
+    cout << a * 2 << endl;
+}
+
+auto funcfunc(void (*func)(int)) -> void (*)(int)
+{
+    if (func == &func1)
+        return &func2;
+    else
+    {
+        void (*fp)(int a) = &func1;
+        return fp;
+    }
 }
