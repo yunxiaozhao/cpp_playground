@@ -3,6 +3,7 @@
 #include <vector>
 #include <deque>
 #include <list>
+#include <queue>
 
 using namespace std;
 
@@ -32,8 +33,13 @@ int main(int argc, char *argv[])
     vector<int> a1{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     vector<int> a2(10, 10);
 
+    cout << a1.capacity() << endl;
+    a1.reserve(1234);
+    cout << a1.capacity() << endl;
+
+
     auto b1 = begin(a1);
-    // swap(a1, a2);
+    swap(a1, a2);
     while (b1 != end(a2))
     {
         cout << *b1++ << endl;
@@ -68,22 +74,29 @@ int main(int argc, char *argv[])
         dmj.emplace_back(j);
     }
     
-    auto realbeg = begin(dmj);
+    auto beg1 = begin(dmj);
     auto beg2 = begin(dmj) + 10;
 
-    cout << beg2->get_a() << endl;
-    cout << (beg2 + 2)->get_a() << endl;
-    dmj.insert(realbeg + 3, 99);
-    //dmj.insert(beg2 + 1, 99);
-    cout << beg2->get_a() << endl;
-    cout << (beg2 + 2)->get_a() << endl;
+    cout << "___________" << endl;
+
+    cout << beg1->get_a() << endl;
+    cout << (beg1 + 5)->get_a() << endl;
+    dmj.insert(beg1 + 9, 99);
+    // dmj.insert(beg2 + 1, 99);
+    cout << beg1->get_a() << endl;
+    cout << (beg1 + 5)->get_a() << endl;
+
+    cout << "___________" << endl;
 
     cout << beg2->get_a() << endl;
     cout << (beg2 + 2)->get_a() << endl;
-    //dmj.insert(realbeg + 3, 99);
     dmj.insert(beg2 + 1, 99);
     cout << beg2->get_a() << endl;
     cout << (beg2 + 2)->get_a() << endl;
+
+    queue<int, vector<int>> qv{a1};
+    qv.push(12);
+    
 
     return EXIT_SUCCESS;
 }
