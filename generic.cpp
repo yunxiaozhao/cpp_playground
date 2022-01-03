@@ -20,7 +20,7 @@ int main()
     vector<double> vecd;
 
     // fill_n算法
-    fill_n(back_insert_iterator(vecd), 10, 3.14);
+    fill_n(back_inserter(vecd), 10, 3.14);
 
     // 替代复制算法
     vector<int> veci;
