@@ -1,4 +1,4 @@
-#include <C:\\Users\\zhaoyunxiao\\repos\\cpp_playground\\class.hpp>
+#include <class.hpp>
 #include <iostream>
 #include <vector>
 
