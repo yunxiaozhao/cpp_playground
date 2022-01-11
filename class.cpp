@@ -31,6 +31,5 @@ int main()
     std::cout << My_class::sci << ' ' << my.scd << std::endl;
     std::cout << std::cout.rdstate();
     vc.cbegin()++;
-
     return 0;
 }
