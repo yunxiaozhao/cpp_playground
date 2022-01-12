@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 class Master
 {
@@ -44,6 +45,8 @@ int main()
     slave.Master::operator()();
     slave(3);
     slave(3.);
+    
+    std::vector<int> vec{1, 2, 3};
 
     return EXIT_SUCCESS;
 }
